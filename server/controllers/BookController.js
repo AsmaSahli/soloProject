@@ -51,34 +51,7 @@ module.exports = {
                 next(error);
             }
         },
-        // updateBook: async (req, res, next) => {
-        //     try {
-        //         const { bookId } = req.params;
-        //         const { title, content } = req.body;
-    
-        //         const book = await Book.findById(bookId);
-        //         if (!book) {
-        //             return next(
-        //                 e.errorHandler(404, 'Book not found')
-        //             );
-        //         }
 
-        //         if (book.userId !== req.user.id) {
-        //             return next(
-        //                 e.errorHandler(403, 'You are not allowed to update this book')
-        //             );
-        //         }
-    
-        //         book.title = title || book.title;
-        //         book.content = content || book.content;
-    
-        //         await book.save();
-    
-        //         res.status(200).json(book);
-        //     } catch (error) {
-        //         next(error);
-        //     }
-        // },
 
         updateBook : async (req, res, next) => {
             const { bookId } = req.params;
@@ -111,6 +84,30 @@ module.exports = {
                 next(error);
                 }
 
+            },
+
+            deleteBook: async (req, res, next) => {
+                try {
+                    const { bookId } = req.params;
+                    const book = await Book.findById(bookId);
+        
+                    if (!book) {
+                        return next(
+                            e.errorHandler(404, 'Book not found')
+                        );
+                    }
+        
+                    if (book.userId !== req.user.id) {
+                        return next(
+                            e.errorHandler(403, 'You are not allowed to delete this book')
+                        );
+                    }
+        
+                    await Book.findByIdAndDelete(bookId);
+                    res.status(204).send();
+                } catch (error) {
+                    next(error);
+                }
             },
         updatelikes : async (req, res, next) => {
             const { bookId } = req.params;

@@ -7,5 +7,5 @@ module.exports = (app) => {
     app.post('/addBook',verifyToken.verifyToken,bookController.addBook)
     app.patch('/updateBook/:bookId',verifyToken.verifyToken,bookController.updateBook)
     app.patch('/updatelikes/:bookId',bookController.updatelikes)
-
+    app.delete('/deleteBook/:bookId',verifyToken.verifyToken,bookController.deleteBook)
 };

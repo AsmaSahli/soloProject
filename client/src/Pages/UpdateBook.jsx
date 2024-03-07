@@ -64,6 +64,26 @@ const UpdateBook = () => {
         }
     };
 
+    const handleDelete = async () => {
+        try {
+            const res = await fetch(`http://localhost:8000/deleteBook/${bookId}`, {
+                method: 'DELETE',
+                credentials: 'include',
+            });
+
+            if (!res.ok) {
+                const data = await res.json();
+                setUpdateError(data.message);
+                return;
+            }
+
+            setUpdateError(null);
+            navigate('/books');
+        } catch (error) {
+            setUpdateError('Something went wrong');
+        }
+    };
+
     return (
         <div className='max-w-lg mx-auto p-3 w-full'>
         <h1 className='my-7 font-semibold text-3xl font-mono'>Update This Book</h1>
@@ -87,6 +107,9 @@ const UpdateBook = () => {
             />
             <Button type='submit' gradientDuoTone='pinkToOrange'>
             Update
+            </Button>
+            <Button type='button' gradientMonochrome="failure" onClick={handleDelete}>
+                    Delete
             </Button>
             {updateError && (
             <Alert className='mt-5' color='failure'>
