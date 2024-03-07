@@ -40,7 +40,7 @@ import {
 
         if (res.ok) {
             dispatch(signInSuccess(data));
-            navigate('/bookes');
+            navigate('/books');
         }
         } catch (error) {
         dispatch(signInFailure(error.message));

@@ -57,7 +57,7 @@ import { Link, useNavigate } from 'react-router-dom';
         }
         } catch (error) {
         console.error(error);
-        setErrorMessage('Internal server error');
+        setErrorMessage('Email is already in use. Please use a different email');
         setLoading(false);
         }
     };

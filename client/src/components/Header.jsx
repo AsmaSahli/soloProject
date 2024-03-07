@@ -7,6 +7,7 @@ import { signoutSuccess } from '../redux/user/userSlice';
 import { toggleTheme } from '../redux/theme/themeSlice';
 import { FaSun } from "react-icons/fa6";
 
+
     const Header = () => {
 
     const path = useLocation().pathname;
@@ -60,9 +61,6 @@ import { FaSun } from "react-icons/fa6";
                     {currentUser.email}
                 </span>
                 </Dropdown.Header>
-                <Link to={'/dashboard?tab=profile'}>
-                <Dropdown.Item>Profile</Dropdown.Item>
-                </Link>
                 <Dropdown.Divider />
                 <Dropdown.Item onClick={handleSignout}>Sign out</Dropdown.Item>
             </Dropdown>
@@ -80,11 +78,11 @@ import { FaSun } from "react-icons/fa6";
 
         {currentUser ? (
                 <Navbar.Collapse>
-                    <Navbar.Link active={path === '/bookes'} as={'div'} className={`active-link ${path === '/bookes' ? 'bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent' : ''}`}>
-                        <Link to='/bookes'>Bookes</Link>
+                    <Navbar.Link active={path === '/bookes'} as={'div'} className={`active-link ${path === '/books' ? 'bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent' : ''}`}>
+                        <Link to='/books'>Books</Link>
                     </Navbar.Link>
-                    <Navbar.Link active={path === '/favouriteBookes'} as={'div'} className={`active-link ${path === '/favouriteBookes' ? 'bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent' : ''}`}>
-                        <Link to='/favouriteBookes'>Favourite Bookes</Link>
+                    <Navbar.Link active={path === '/favouriteBooks'} as={'div'} className={`active-link ${path === '/favouriteBooks' ? 'bg-gradient-to-r from-amber-500 to-pink-500 bg-clip-text text-transparent' : ''}`}>
+                        <Link to='/favouriteBooks'>Favourite Books</Link>
                     </Navbar.Link>
                 </Navbar.Collapse>
             ) : 

@@ -9,7 +9,7 @@ const PrivateRoute = () => {
     // Check if there is a currentUser
     // If authenticated, render the nested components
     // If not authenticated, navigate to the "/signin" route
-    return currentUser ? <Outlet /> : <Navigate to='/signin' />;
+    return currentUser ? <Outlet /> : <Navigate to='/signin' /> ;
 }
 
 export default PrivateRoute

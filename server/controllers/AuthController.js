@@ -28,7 +28,7 @@ module.exports = {
                 }}
             const potentialUser=await User.findOne({email:req.body.email})
             if(potentialUser){
-                next(e.errorHandler(400, 'User already registered'))
+                return next(e.errorHandler(400, 'User already registered'))
             }
             if (
                 password !==confirmPassword
