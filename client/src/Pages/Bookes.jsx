@@ -81,7 +81,7 @@ const BooksList = ({ books }) => {
   };
   return (
     <div className='max-w-lg mx-auto p-3 w-full'>
-    <h1 className='my-7 font-semibold text-3xl font-mono'>WELCOME,{currentUser.firstName.toUpperCase()} </h1>
+    <h1 className='my-7 font-semibold text-3xl font-mono'>WELCOME,{currentUser?.firstName?.toUpperCase() || ''} </h1>
     <h1 className='text-center text-3xl my-7 font-semibold font-mono'>Add a Book</h1>
     <form className='flex flex-col gap-4'onSubmit={handleSubmit}>
     
