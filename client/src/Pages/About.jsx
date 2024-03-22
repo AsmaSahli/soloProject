@@ -1,5 +1,5 @@
 import React from 'react';
-
+//about Page 
 const About = () => {
     return (
         <div className='min-h-screen flex items-center justify-center'>
